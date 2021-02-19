@@ -1,0 +1,94 @@
+@import '../../../base'
+
+.container
+    grid-area: list
+
+.headers
+    display: flex
+    flex-direction: column
+    justify-content: center
+    padding: 10px
+
+.header
+    width: auto
+    height: 5%
+    h2
+        font-size: $medium
+        font-weight: $bold
+        
+.list
+    max-height: 93%
+    overflow: auto
+
+.element
+    width: 90%
+    height: auto
+    background-color: white
+    margin: 10px 0 0 0
+    border-radius: 16px
+    overflow: hidden
+    display: flex
+    justify-content: space-between
+
+.buttons
+    display: flex
+    align-items: center
+
+.btn
+    width: 50px
+    height: 50px
+    background-color: $bg-color
+    color: $primary-color
+    border-radius: 8px
+    border: none
+    margin: 10px
+    outline: none
+    cursor: pointer
+
+.category
+    p
+        margin: 0px
+    
+
+.date
+    p
+        font-size: $small
+        font-weight: $regular
+        color: $secondary-color-light
+        
+
+.name
+    h3
+        font-size: $small
+        font-weight: $bold
+        color: $primary-color
+        margin: 0
+
+.btn:hover
+    box-shadow: 0 0px 5px $primary-color
+
+
+@media (min-width: 768px)
+    ::-webkit-scrollbar
+        background-color: $primary-color-light
+        border-radius: 16px
+        width: 8px
+
+    ::-webkit-scrollbar-thumb
+        background: $primary-color
+        border-radius: 16px
+
+
+@media (max-width: 480px )
+    .element
+        width: 100%
+
+    .list
+        width: 100%
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        
+    .header
+        height: auto

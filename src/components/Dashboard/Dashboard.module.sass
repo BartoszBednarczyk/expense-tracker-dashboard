@@ -1,0 +1,60 @@
+@import '../../base'
+    
+.container
+    width: 80%
+    height: 100%
+    background-color: $bg-color
+    box-sizing: border-box
+    padding: 10px
+
+.grid
+    display: grid
+    grid-gap: 30px
+    height: 100%
+    grid-template-areas: "greet list total" "income list form" "income list form" "income list form" "expense list form" "expense list voice" "expense list voice"
+    grid-template-rows: repeat(7, 1fr)
+    grid-template-columns: repeat(3, 1fr)
+    
+.element
+    background-color: white
+
+.greet
+    display: flex
+    grid-area: greet
+    justify-content: bottom
+    align-items: flex-end
+    h1
+        font-weight: $bold
+        font-size: $big
+        margin: 0
+
+.list
+    grid-area: list
+
+.income
+    grid-area: income
+
+.expense
+    grid-area: expense
+
+.total
+    grid-area: total
+
+.form
+    grid-area: form
+
+.voice
+    grid-area: voice
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px)
+    .container
+        width: 100%
+        height: 90%
+        overflow: scroll
+        
+
+    .grid
+        display: flex
+        flex-direction: column
+        overflow: auto
+    

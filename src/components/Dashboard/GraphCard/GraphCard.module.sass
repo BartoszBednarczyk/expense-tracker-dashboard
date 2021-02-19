@@ -1,0 +1,49 @@
+@import '../../../base'
+
+.containerExpense
+    background-color: white
+    border-radius: 12px
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    grid-area: expense
+
+.containerIncome
+    background-color: white
+    border-radius: 12px
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    grid-area: income
+
+
+.headerContainer 
+    height: auto
+    padding: $padding
+    display: flex
+    justify-content: space-between
+    h2
+        font-size: $small
+        font-weight: $bold
+        
+    p
+        font-size: $small
+        font-weight: $regular
+        color: $secondary-color-light
+.total
+    display: flex
+    align-items: center
+    h2
+        font-size: $medium
+        font-weight: $bold
+
+.graph
+    display: flex
+    justify-content: center
+    align-items: flex-end
+    height: 80%
+    margin: 10px
+
+@media (max-width: 480px )
+    .container
+        height: auto
