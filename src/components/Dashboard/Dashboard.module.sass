@@ -9,7 +9,7 @@
 
 .grid
     display: grid
-    grid-gap: 30px
+    grid-gap: $padding
     height: 100%
     grid-template-areas: "greet list total" "income list form" "income list form" "income list form" "expense list form" "expense list voice" "expense list voice"
     grid-template-rows: repeat(7, 1fr)
@@ -51,6 +51,8 @@
         width: 100%
         height: 90%
         overflow: scroll
+        position: fixed
+        top: 0
         
 
     .grid
@@ -58,3 +60,10 @@
         flex-direction: column
         overflow: auto
     
+@media only screen and (min-device-width : 480px) and (max-device-width : 768px)
+    .greet
+        h1
+            font-size: $big-xs
+
+    .container
+        width: 90%

@@ -24,7 +24,7 @@ const List = () => {
                         </div>
                         <div className={styles.buttons}>
                             <div className={styles.date}><p>{transaction.date}</p></div>
-                            <button className={styles.btn} onClick={() => deleteTransaction(transaction.id)}>Del</button>
+                            <button className={styles.btn} onClick={() => deleteTransaction(transaction.id)}>D</button>
                         </div>
                     </div>
                 </Slide>

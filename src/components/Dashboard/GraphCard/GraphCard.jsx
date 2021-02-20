@@ -14,6 +14,8 @@ const GraphCard = ({ title }) => {
         tooltip: {
             enabled: false
         },
+        responsive: true,
+        maintainAspectRatio: false,
     }
     return (
         <div className={title === "Expense" ? styles.containerExpense : styles.containerIncome}>
@@ -27,7 +29,9 @@ const GraphCard = ({ title }) => {
                 </div>
             </div>
             <div className={styles.graph}>
-            <Doughnut options={options} data={chartData} />
+            <div className={styles.graphContainer}>
+                {/* <Doughnut options={options} data={chartData} /> */}
+            </div>
             </div>
         </div>
     )

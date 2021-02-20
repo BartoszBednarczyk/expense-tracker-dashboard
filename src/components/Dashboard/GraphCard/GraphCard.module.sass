@@ -44,6 +44,24 @@
     height: 80%
     margin: 10px
 
+.graphContainer
+    max-height: 100%
+    max-width: 100%
+
 @media (max-width: 480px )
     .container
         height: auto
+
+@media only screen and (min-device-width : 480px) and (max-device-width : 768px)
+    .total
+        h2
+            font-size: $medium-xs
+
+    .headerContainer
+        padding: $padding-xs 
+        h2
+            font-size: $small-xs
+            margin: 0
+        p
+            font-size: $small-xs
+            margin: 0

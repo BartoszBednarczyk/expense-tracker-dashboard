@@ -25,10 +25,12 @@
     display: flex
     flex-direction: column
     justify-content: space-between
+    align-items: center
     
 
 .selectOption
-    height: 15%
+    height: 20%
+    width: 90%
     border-radius: 8px
     border: solid 1px $primary-color-light
     padding: 0px 10px 0px 10px
@@ -36,9 +38,11 @@
     font-weight: $regular
     margin: $padding
     outline: none
+    box-sizing: content-box
 
 .submitButton
-    height: 15% 
+    height: 20%
+    width: 90%
     border-radius: 8px
     border: solid 1px $primary-color
     font-size: $small
@@ -47,12 +51,30 @@
     background: none
     color: $primary-color
     cursor: pointer
-    margin: $padding
     outline: none
+    box-sizing: content-box
+    padding: 0px 10px 0px 10px
+    margin-bottom: $padding
 
 .submitButton:hover
     background: $primary-color
     color: white
     
+@media only screen and (min-device-width : 480px) and (max-device-width : 768px)
+    .formHeader
+        h2
+            font-size: $medium-xs
+
+    .selectOption
+        font-size: $small-xs
+        padding: 0 $padding-xs 0 $padding-xs
+        margin: $padding-xs
+        border-radius: 4px
     
-    
+    .submitButton
+        border-radius: 4px
+        margin: $padding-xs
+        padding: 0 $padding-xs 0 $padding-xs
+        h3
+            font-size: $medium-xs
+            margin: 0

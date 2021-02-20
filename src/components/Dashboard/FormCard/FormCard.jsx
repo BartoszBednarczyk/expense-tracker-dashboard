@@ -88,7 +88,7 @@ const FormCard = () => {
                 </select>
                 <input className={styles.selectOption} placeholder="50$" type="number" label="Amount" value={formData.amount} onChange={(e) => setFormData({...formData, amount: e.target.value})} />
                 <input className={styles.selectOption} type="date" label="Date" value={formData.date} onChange={(e) => setFormData({...formData, date: formatDate(e.target.value)})} />
-                <button className={styles.submitButton}  onClick={createTransaction}>Add</button>
+                <button className={styles.submitButton}  onClick={createTransaction}><h3>Add</h3></button>
             </form>
             </div>
             
