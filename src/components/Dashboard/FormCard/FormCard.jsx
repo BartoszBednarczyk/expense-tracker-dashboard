@@ -5,7 +5,9 @@ import { v4 as uuidv4 } from 'uuid'
 import { incomeCategories, expenseCategories } from '../../../constants/categories'
 import formatDate from '../../../utils/formatDate'
 //import { useSpeechContext } from '@speechly/react-client'
-
+import firebase from '../../../firebase/firebase'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '../../../firebase/auth'
 import styles from './FormCard.module.sass'
 
 const initialState = {
@@ -19,6 +21,7 @@ const FormCard = () => {
 
     const [formData, setFormData] = useState(initialState)
     const { addTransaction } = useContext(ExpenseTrackerContext)
+    const [user]= useAuthState(auth)
     //const { segment } = useSpeechContext()
 
     useEffect(() => {
@@ -26,10 +29,23 @@ const FormCard = () => {
     }, [formData.type])
 
     const createTransaction = () => {
-        if(Number.isNaN(Number(formData.amount)) || !formData.date.includes('-')) return
-        const transaction = {...formData, amount: Number(formData.amount), id: uuidv4()}
+        if(user){
+        const tempuuid = uuidv4()
+        firebase.firestore().collection("users").doc(user.uid).collection('transactions').doc(tempuuid).set({
+            amount: Number(formData.amount),
+            category: formData.category,
+            type: formData.type,
+            date: formData.date
+        })
+        const transaction = {...formData, amount: Number(formData.amount), id: tempuuid}
         addTransaction(transaction)
         setFormData(initialState)
+        } else {
+            if(Number.isNaN(Number(formData.amount)) || !formData.date.includes('-')) return
+            const transaction = {...formData, amount: Number(formData.amount), id: uuidv4()}
+            addTransaction(transaction)
+            setFormData(initialState)
+        } 
     }
 
     // useEffect(() => {

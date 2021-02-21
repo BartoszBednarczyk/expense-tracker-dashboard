@@ -2,15 +2,15 @@ import React from 'react'
 import styles from './Navbar.module.sass'
 import cx from 'classnames'
 
-const Navbar = () => {
+const Navbar = ({current, setCurrent}) => {
     return (
         <div className={styles.container}>
                 <div className={styles.logo}>
                     <h1>ExTra</h1>
                 </div>
                 <div className={styles.options}>
-                    <div className={styles.btnActive}>
-                        <button>1</button>
+                    <div className={current === 0 ? styles.btnActive : null}>
+                        <button onClick={() => setCurrent(0)}>1</button>
                         <p>Dashboard</p>
                     </div>
                     <div>
@@ -22,8 +22,8 @@ const Navbar = () => {
                         <p>Diagrams</p>
                     </div>
                 </div>
-                <div className={styles.login}>
-                    <button>
+                <div className={current === 3 ? styles.btnActive : null}>
+                    <button onClick={() => setCurrent(3)}>
                         L
                     </button>
                     <p>Login</p>

@@ -1,8 +1,19 @@
 import React, { useReducer, createContext } from 'react'
-
+import {auth} from '../firebase/auth'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import firebase from 'firebase'
 import contextReducer from './contextReducer'
 
-const initialState = JSON.parse(localStorage.getItem('transactions')) || []
+
+
+var initialState = JSON.parse(localStorage.getItem('transactions')) || []
+
+if(auth){
+    console.log(auth)
+    //initialState = []
+}
+
+
 
 export const ExpenseTrackerContext = createContext(initialState)
 
@@ -12,6 +23,10 @@ export const Provider = ({ children }) => {
     // Action Creators
     const deleteTransaction = (id) => {
         dispatch({ type: 'DELETE_TRANSACTION', payload: id })
+    }
+
+    const clearTransactions = () => {
+        dispatch({type: 'CLEAR_TRANSACTIONS'})
     }
 
     const addTransaction = (transaction) => {
@@ -26,6 +41,7 @@ export const Provider = ({ children }) => {
         <ExpenseTrackerContext.Provider value={{ 
             deleteTransaction,
             addTransaction,
+            clearTransactions,
             transactions,
             balance
          }}>

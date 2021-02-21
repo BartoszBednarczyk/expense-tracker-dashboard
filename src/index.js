@@ -5,7 +5,7 @@ import styles from './index.module.sass'
 import { Provider } from './context/context'
 
 ReactDOM.render(
-    <Provider>
-        <App />
-    </Provider>
+        <Provider>
+            <App />
+        </Provider>
     , document.getElementById("root"))
