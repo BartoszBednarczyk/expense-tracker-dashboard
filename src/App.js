@@ -64,7 +64,7 @@ const App = () => {
     },[user])
     return (
         <div className={styles.container}>
-            <Navbar current={current} setCurrent={setCurrent} />
+            <Navbar user={user} current={current} setCurrent={setCurrent} />
             {renderComp()}
         </div>
     )

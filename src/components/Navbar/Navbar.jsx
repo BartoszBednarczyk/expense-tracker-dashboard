@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Navbar.module.sass'
 import cx from 'classnames'
 
-const Navbar = ({current, setCurrent}) => {
+const Navbar = ({current, setCurrent, user}) => {
     return (
         <div className={styles.container}>
                 <div className={styles.logo}>
@@ -23,10 +23,10 @@ const Navbar = ({current, setCurrent}) => {
                     </div>
                 </div>
                 <div className={current === 3 ? styles.btnActive : null}>
-                    <button onClick={() => setCurrent(3)}>
-                        L
+                    <button style={user ? {backgroundImage: `url(${user.photoURL})`}: {color: "blue"}} onClick={() => setCurrent(3)}>
+                        {user? null : "A"}
                     </button>
-                    <p>Login</p>
+                    <p>Account</p>
                 </div>
         </div>
     )

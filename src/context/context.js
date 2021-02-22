@@ -8,11 +8,17 @@ import contextReducer from './contextReducer'
 
 var initialState = JSON.parse(localStorage.getItem('transactions')) || []
 
-if(auth){
-    console.log(auth)
-    //initialState = []
-}
-
+// if(auth){
+//     console.log(auth.currentUser)
+//     initialState = []
+// }
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      initialState=[]
+    } else {
+      // No user is signed in.
+    }
+  });
 
 
 export const ExpenseTrackerContext = createContext(initialState)
