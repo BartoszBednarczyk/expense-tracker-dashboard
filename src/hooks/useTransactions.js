@@ -2,11 +2,12 @@ import { useContext } from 'react'
 import { ExpenseTrackerContext } from '../context/context'
 
 import { incomeCategories, expenseCategories, resetCategories } from '../constants/categories'
-
+import filterMonthTransactions from '../utils/filterMonthTransactions'
 const useTransactions = (title) => {
     resetCategories()
     const { transactions } = useContext(ExpenseTrackerContext)
-    const transactionsPerType = transactions ? transactions.filter((t) => t.type === title) : []
+    const transactionsPerType = transactions ? transactions.filter((t) => t.type === title).filter((c) => filterMonthTransactions(c))
+    : []
     const total = transactionsPerType.reduce((acc, currVal) => acc += currVal.amount, 0)
     const categories = title === 'Income' ? incomeCategories : expenseCategories
     
@@ -18,7 +19,7 @@ const useTransactions = (title) => {
     })
 
     const filteredCategories = categories.filter((c) => c.amount > 0)
-
+    
     const chartData = {
         datasets: [{
             data: filteredCategories.map((c) => c.amount),
@@ -27,7 +28,8 @@ const useTransactions = (title) => {
         labels: filteredCategories.map((c) => c.type)
     }
 
-    return { total, chartData }
+
+    return { total, chartData}
 }
 
 export default useTransactions

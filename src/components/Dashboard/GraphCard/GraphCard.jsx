@@ -2,21 +2,22 @@ import React from 'react'
 import styles from './GraphCard.module.sass'
 import { Doughnut } from 'react-chartjs-2'
 import useTransactions from '../../../hooks/useTransactions'
+import { PieChart, Pie, Cell, Legend } from "recharts";
 
 const GraphCard = ({ title }) => {
     const { total, chartData } = useTransactions(title)
     const options = {
-        rotation: 1 * Math.PI,
-        circumference: 1 * Math.PI,
-        legend: {
-            display: true
-        },
-        tooltip: {
-            enabled: false
-        },
-        responsive: true,
-        maintainAspectRatio: false,
-    }
+      rotation: 1 * Math.PI,
+      circumference: 1 * Math.PI,
+      legend: {
+          display: true
+      },
+      tooltip: {
+          enabled: false
+      },
+      responsive: true,
+      maintainAspectRatio: false,
+  }
     return (
         <div className={title === "Expense" ? styles.containerExpense : styles.containerIncome}>
             <div className={styles.headerContainer}>
@@ -28,11 +29,14 @@ const GraphCard = ({ title }) => {
                     <h2>{total}$</h2>
                 </div>
             </div>
-            <div className={styles.graph}>
             <div className={styles.graphContainer}>
-                {/* <Doughnut options={options} data={chartData} /> */}
+            <div className={styles.graph}>
+            
+            <Doughnut options={options} data={chartData} />
+      
+        </div>
             </div>
-            </div>
+            
         </div>
     )
 }

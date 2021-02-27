@@ -6,13 +6,14 @@ import { Slide } from '@material-ui/core'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../../../firebase/auth'
 import firebase from '../../../firebase/firebase'
+import sortTransactions from '../../../utils/sortTransactions'
+import filterRecentTransactions from '../../../utils/filterRecentTransactions'
 
 const List = () => {
     const { deleteTransaction, transactions } = useContext(ExpenseTrackerContext)
     const [user]= useAuthState(auth)
     
     const delTransaction = (transaction) => {
-        console.log("Usuwanko")
         if(user){
             console.log(transaction.id)
             firebase.firestore().collection("users").doc(user.uid).collection('transactions').doc(transaction.id).delete()
@@ -22,7 +23,7 @@ const List = () => {
             deleteTransaction(transaction.id)
         }
     }
-
+    
     return (
         <div className={styles.container}>
             <div className={styles.header}>
@@ -30,7 +31,7 @@ const List = () => {
             </div>
             <div className={styles.list}>
 
-                {transactions.map((transaction) => (
+                {transactions.filter((transaction)=>filterRecentTransactions(transaction)).sort(sortTransactions).map((transaction) => (
                     <Slide direction="down" in mountOnEnter unmountOnExit key={transaction.id}>
                     <div className={styles.element}>
                         <div className={styles.headers}>

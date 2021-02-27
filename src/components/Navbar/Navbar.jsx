@@ -13,8 +13,8 @@ const Navbar = ({current, setCurrent, user}) => {
                         <button onClick={() => setCurrent(0)}>1</button>
                         <p>Dashboard</p>
                     </div>
-                    <div>
-                        <button>2</button>
+                    <div className={current === 1 ? styles.btnActive : null}>
+                        <button onClick={() => setCurrent(1)}>2</button>
                         <p>History</p>
                     </div>
                     <div>

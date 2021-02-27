@@ -3,6 +3,7 @@ import styles from './App.module.sass'
 import Navbar from './components/Navbar/Navbar'
 import Dashboard from './components/Dashboard/Dashboard'
 import Account from './components/Account/Account'
+import History from './components/History/History'
 import {auth} from './firebase/auth'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import firebase from './firebase/firebase'
@@ -28,6 +29,8 @@ const App = () => {
         switch(current){
             case 0:
                 return <Dashboard />
+            case 1:
+                return <History />
             case 3:
                 return <Account />
             case 4:
