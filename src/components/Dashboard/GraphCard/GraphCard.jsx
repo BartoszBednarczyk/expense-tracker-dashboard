@@ -3,6 +3,7 @@ import styles from './GraphCard.module.sass'
 import { Doughnut } from 'react-chartjs-2'
 import useTransactions from '../../../hooks/useTransactions'
 import { PieChart, Pie, Cell, Legend } from "recharts";
+import '../../../utils/filterMonthTransactions'
 
 const GraphCard = ({ title }) => {
     const { total, chartData } = useTransactions(title)
