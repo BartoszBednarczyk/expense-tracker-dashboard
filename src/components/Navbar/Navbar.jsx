@@ -1,6 +1,9 @@
 import React from 'react'
 import styles from './Navbar.module.sass'
 import cx from 'classnames'
+import DashboardIcon from '@material-ui/icons/Dashboard'
+import SubjectIcon from '@material-ui/icons/Subject'
+import EqualizerIcon from '@material-ui/icons/Equalizer'
 
 const Navbar = ({current, setCurrent, user}) => {
     return (
@@ -10,15 +13,21 @@ const Navbar = ({current, setCurrent, user}) => {
                 </div>
                 <div className={styles.options}>
                     <div className={current === 0 ? styles.btnActive : null}>
-                        <button onClick={() => setCurrent(0)}>1</button>
+                        <button onClick={() => setCurrent(0)}>
+                            <DashboardIcon />
+                        </button>
                         <p>Dashboard</p>
                     </div>
                     <div className={current === 1 ? styles.btnActive : null}>
-                        <button onClick={() => setCurrent(1)}>2</button>
+                        <button onClick={() => setCurrent(1)}>
+                            <SubjectIcon />
+                        </button>
                         <p>History</p>
                     </div>
                     <div>
-                        <button>3</button>
+                        <button>
+                            <EqualizerIcon />
+                        </button>
                         <p>Diagrams</p>
                     </div>
                 </div>

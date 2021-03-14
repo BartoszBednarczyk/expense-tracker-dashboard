@@ -5,6 +5,7 @@
   "dependencies": {
     "@khanacademy/react-multi-select": "^0.3.3",
     "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
     "@speechly/react-client": "0.0.6",
     "@speechly/react-ui": "^1.2.1",
     "@testing-library/jest-dom": "^5.11.9",

@@ -8,6 +8,7 @@ import { auth } from '../../../firebase/auth'
 import firebase from '../../../firebase/firebase'
 import sortTransactions from '../../../utils/sortTransactions'
 import filterRecentTransactions from '../../../utils/filterRecentTransactions'
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline'
 
 const List = () => {
     const { deleteTransaction, transactions } = useContext(ExpenseTrackerContext)
@@ -42,7 +43,9 @@ const List = () => {
                         </div>
                         <div className={styles.buttons}>
                             <div className={styles.date}><p>{transaction.date}</p></div>
-                            <button className={styles.btn} onClick={() => delTransaction(transaction)}>D</button>
+                            <button className={styles.btn} onClick={() => delTransaction(transaction)}>
+                                <DeleteOutlineIcon />
+                            </button>
                         </div>
                     </div>
                 </Slide>

@@ -11,7 +11,7 @@ const Account = () => {
 
     return (
         <div className={styles.container}>
-            {user ? <div className={styles.container}><h1>Siema {user.displayName}</h1>
+            {user ? <div className={styles.container}><h1>Hello, {user.displayName}</h1>
                 <button onClick={() => auth.signOut()} className={styles.btn}>Logout</button>
                 </div>
             : 
